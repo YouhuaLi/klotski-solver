@@ -27,6 +27,22 @@ class Solver:
         self._enqueued.add(next_board.hash_key())
     return solutions, _analyze_solutions(solutions, self._enqueued)
 
+  def solve_single(self):
+    solutions = []
+    while len(self._q) > 0:
+      current_board = self._q.popleft()
+      next_boards = current_board.next_boards()
+      for next_board in next_boards:
+        if next_board.hash_key() in self._enqueued:
+          continue
+        next_board.previous_board = current_board
+        if board.solved(next_board):
+          solutions.append(_solution_to_list(next_board))
+          if len(solutions) > 9:
+            return solutions, _analyze_solutions(solutions, self._enqueued) # return when find 9 solutions
+        self._q.append(next_board)
+        self._enqueued.add(next_board.hash_key())
+    return solutions, _analyze_solutions(solutions, self._enqueued)
 
 def _analyze_solutions(solutions, examined_configurations):
   return {

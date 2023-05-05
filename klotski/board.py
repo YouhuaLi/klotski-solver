@@ -1,5 +1,5 @@
-WIDTH = 4
-HEIGHT = 5
+WIDTH = 5
+HEIGHT = 6
 
 class Piece:
   def __init__(self, label, occupied_squares):
@@ -26,7 +26,11 @@ class Piece:
       if sc < 0 or sc >= WIDTH:
         return False
 
-      if not squares[_tuple_to_index((sr, sc))] in [-1, self.label()]:
+      if self.label() == 0:
+        leagal_target_lables =[-1, -2, self.label()]
+      else:
+        leagal_target_lables =[-1, self.label()]
+      if not squares[_tuple_to_index((sr, sc))] in leagal_target_lables:
         return False
 
     return True
@@ -50,12 +54,24 @@ class Board:
     output = ''
     for i, square in enumerate(self._squares):
       if i > 0 and i % WIDTH == 0:
-        output += '\n'
-      output += str(square) if not square == -1 else ' '
+        output += '\n-------------------------\n'
+      #output += str(square) + '  ' if not square == -1 else ' '
+      if square in (-1, -2):
+        output += "    |"
+      else:
+        if square == -9:
+          output += " X  |"
+        else:
+          if square < 10:
+            output += " {}  |".format(str(square))
+          else:
+            output += " {} |".format(str(square))
+     # output += str(square) + '  ' if not square == -1 else ' '
     return output
 
   def hash_key(self):
-    value_map = { -1: ' ', 0: 'S', 1: 't', 2: 't', 3: 's', 4: 's', 5: 't', 6: 's', 7: 's', 8: 't', 9: 'w'}
+    #value_map = { -1: ' ', 0: 'S', 1: 't', 2: 't', 3: 's', 4: 's', 5: 't', 6: 's', 7: 's', 8: 't', 9: 'w'}
+    value_map = { -1: ' ', 0: 'S', 1: 's', 2: 's', 3: 's', 4: 's', 5: 's', 6: 'w', 7: 't', 8: 't', 9: 't', 10: 'w', 11: 't', -9: 'X' , -2: "e"}
     chars = [value_map[s] for s in self._squares]
     return ''.join(chars)
 
@@ -86,15 +102,34 @@ class Board:
 
 
 def initial_board():
-  squares = [
+  original_squares = [
     -1,  0,  0, -1,
      1,  0,  0,  2,
      1,  3,  4,  2,
      5,  6,  7,  8,
      5,  9,  9,  8
   ]
+  quzhengjin = [
+     4,  2,  0,  6, 6,
+     3,  0,  0,  0, 7,
+     1,  5,  0,  9, 7,
+     11, 10, 10, 9, 8,
+     11,  -1, -1, -1, 8,
+     -9, -2, -2, -2, -9
+  ]
+
+  test_207 = [
+     7,  8,  -1, 1,  2,
+     7,  8,  0,  4,  3,
+    -1,  0,  0,  0, -1,
+    10, 10,  0, 11,  9,
+     6,  6,  5, 11,  9,
+     -9, -2, -2, -2, -9
+  ]
+
+  squares = test_207
   pieces = []
-  for label_to_find in range(10):
+  for label_to_find in range(12):
     occupied_sauares = [ occupied_square
                          for (occupied_square, label) in enumerate(squares)
                          if label == label_to_find ]
@@ -102,7 +137,8 @@ def initial_board():
   return Board(pieces, squares)
 
 def solved(board):
-  return board._squares[17] == 0 and board._squares[18] == 0
+  return board._squares[27] == 0
+  #return board._squares[17] == 0 and board._squares[19] == 0 and board._squares[24] == -1
 
 _piece_heights = [2, 1, 2, 1, 1]
 _piece_widths = [2, 2, 1, 1, 1]
@@ -113,11 +149,11 @@ def number_of_states():
   return _number_of_states(remaining_pieces, occupied_squares, 0, 0)
 
 def _number_of_states(remaining_pieces, occupied_squares, start_row, start_col):
-  if all(map(lambda x: x == 0, remaining_pieces)):
-    assert start_row == HEIGHT
-    assert start_col == 0
-    return 1
-  assert start_row < HEIGHT and start_col < WIDTH
+  # if all(map(lambda x: x == 0, remaining_pieces)):
+  #   assert start_row == HEIGHT
+  #   assert start_col == 0
+  #   return 1
+  # assert start_row < HEIGHT and start_col < WIDTH
 
   number_of_states = 0
   for (i, count) in enumerate(remaining_pieces):
