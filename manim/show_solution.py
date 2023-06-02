@@ -81,34 +81,49 @@ class Show_Solution(Scene):
         board = Rectangle(width=5, height=6, fill_opacity=0.1, color=GREEN)
         self.play(Create(board))
 
-        box = Rectangle(width=1, height=1, color=BLUE, fill_opacity=1)
+        box = Rectangle(width=1, height=1, color=RED_B, fill_opacity=1)
         text = Text('沙僧', font_size=24).move_to(box.get_center())
-
         piece_shaseng = VGroup().add(box, text)
 
-        box = Rectangle(width=1, height=1, color=RED, fill_opacity=1)
+        box = Rectangle(width=1, height=1, color=RED_A, fill_opacity=1)
         text = Text('悟空', font_size=24).move_to(box.get_center())
         piece_wukong = VGroup().add(box, text)
 
-        box = Rectangle(width=1, height=1, color=YELLOW, fill_opacity=1)
+        box = Rectangle(width=1, height=1, color=RED_C, fill_opacity=1)
         text = Text('八戒', font_size=24).move_to(box.get_center())
         piece_bajie = VGroup().add(box, text)
 
-        box = Rectangle(width=1, height=1, color=LIGHT_GRAY, fill_opacity=1)
-        text = Text('唐僧', font_size=24, color=BLACK).move_to(box.get_center())
+        box = Rectangle(width=1, height=1, color=RED_E, fill_opacity=1)
+        text = Text('唐僧', font_size=24).move_to(box.get_center())
         piece_tangseng = VGroup().add(box, text)
 
-        box = Rectangle(width=1, height=1, color=LIGHT_GRAY, fill_opacity=1)
-        text = Text('白龙马', font_size=24).move_to(box.get_center())
+        box = Rectangle(width=1, height=1, color=WHITE, fill_opacity=1)
+        text = Text('白龙马', font_size=24, color=BLACK).move_to(box.get_center())
         piece_baima = VGroup().add(box, text)
 
-        piece_gui = Rectangle(width=2, height=1, color=DARK_BROWN, fill_opacity=1)
-        piece_mo = Rectangle(width=2, height=1, color=LIGHT_BROWN, fill_opacity=1)
+        box = Rectangle(width=2, height=1, color=PURPLE_A, fill_opacity=1)
+        text = Text('鬼', font_size=24).move_to(box.get_center())
+        piece_gui = VGroup().add(box, text)
         
-        piece_guai = Rectangle(width=1, height=2, color=TEAL, fill_opacity=1)
-        piece_jing = Rectangle(width=1, height=2, color=ORANGE, fill_opacity=1)
-        piece_ling = Rectangle(width=1, height=2, color=PINK, fill_opacity=1)
-        piece_yao = Rectangle(width=1, height=2, color=TEAL_E, fill_opacity=1)
+        box = Rectangle(width=2, height=1, color=PURPLE_B, fill_opacity=1)
+        text = Text('魔', font_size=24).move_to(box.get_center())
+        piece_mo = VGroup().add(box, text)
+        
+        box = Rectangle(width=1, height=2, color=BLUE_A, fill_opacity=1)
+        text = Text('鬼', font_size=24).move_to(box.get_center())
+        piece_guai = VGroup().add(box, text)
+
+        box = Rectangle(width=1, height=2, color=BLUE_B, fill_opacity=1)
+        text = Text('精', font_size=24).move_to(box.get_center())
+        piece_jing =VGroup().add(box, text)
+        
+        box = Rectangle(width=1, height=2, color=BLUE_C, fill_opacity=1)
+        text = Text('灵', font_size=24).move_to(box.get_center())
+        piece_ling = VGroup().add(box, text)
+
+        box = Rectangle(width=1, height=2, color=BLUE_D, fill_opacity=1)
+        text = Text('妖', font_size=24).move_to(box.get_center())
+        piece_yao =VGroup().add(box, text)
 
         # Position the game pieces on the board
         piece_shaseng.move_to(board.get_corner(UL) + RIGHT / 2 + DOWN / 2)
@@ -140,8 +155,8 @@ class Show_Solution(Scene):
             piece_wukong.get_corner(UR) + RIGHT + DOWN + RIGHT + DOWN + LEFT + DOWN + LEFT + UP + LEFT + UP + RIGHT,
         ]
 
-        box = Polygon(*zhengjin_position_list, color=PURPLE_B, fill_opacity=1)
-        text = Text('真经', font_size=48, color=GOLD).move_to(box.get_center())
+        box = Polygon(*zhengjin_position_list, color=GOLD_A, fill_opacity=1)
+        text = Text('真经', font_size=48).move_to(box.get_center())
         piece_zhengjin = VGroup().add(box, text)
 
         # Add the game pieces to the scene
