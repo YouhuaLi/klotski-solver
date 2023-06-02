@@ -69,6 +69,12 @@ class Board:
      # output += str(square) + '  ' if not square == -1 else ' '
     return output
 
+  def to_one_line(self):
+    output = ''
+    for i, square in enumerate(self._squares):
+      output += str(square) + ','
+    return output
+
   def hash_key(self):
     #value_map = { -1: ' ', 0: 'S', 1: 't', 2: 't', 3: 's', 4: 's', 5: 't', 6: 's', 7: 's', 8: 't', 9: 'w'}
     value_map = { -1: ' ', 0: 'S', 1: 's', 2: 's', 3: 's', 4: 's', 5: 's', 6: 'w', 7: 't', 8: 't', 9: 't', 10: 'w', 11: 't', -9: 'X' , -2: "e"}
@@ -127,7 +133,7 @@ def initial_board():
      -9, -2, -2, -2, -9
   ]
 
-  squares = test_207
+  squares = quzhengjin
   pieces = []
   for label_to_find in range(12):
     occupied_sauares = [ occupied_square
