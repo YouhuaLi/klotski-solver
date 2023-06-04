@@ -31,7 +31,7 @@ Finished in 113023.16320681572 seconds
 
 ## 生成动画：
 
-依赖 [manim|https://docs.manim.community/en/stable/index.html]
+依赖 [manim](https://docs.manim.community/en/stable/index.html)
 
 在manim目录中：
 
