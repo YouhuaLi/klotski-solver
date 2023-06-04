@@ -115,7 +115,7 @@ def initial_board():
      5,  6,  7,  8,
      5,  9,  9,  8
   ]
-  quzhengjin = [
+  quzhenjing = [
      4,  2,  0,  6, 6,
      3,  0,  0,  0, 7,
      1,  5,  0,  9, 7,
@@ -124,7 +124,7 @@ def initial_board():
      -9, -2, -2, -2, -9
   ]
 
-  test_207 = [
+  hardest_303 = [
      7,  8,  -1, 1,  2,
      7,  8,  0,  4,  3,
     -1,  0,  0,  0, -1,
@@ -133,7 +133,7 @@ def initial_board():
      -9, -2, -2, -2, -9
   ]
 
-  squares = quzhengjin
+  squares = hardest_303
   pieces = []
   for label_to_find in range(12):
     occupied_sauares = [ occupied_square

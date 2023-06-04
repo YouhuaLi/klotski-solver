@@ -1,0 +1,7 @@
+Finished in 113023.16320681572 seconds
+  9094398 unique solutions
+  303 moves in shortest solution
+  375 moves in longest solution
+  9094398 unique end states
+  105644294 board configurations examined
+  0 board configurations total (-105644294 unreachable)

@@ -16,8 +16,9 @@ solver = klotski.solver.Solver()
 # print('  {} board configurations total ({} unreachable)'.format(total_states, total_states - stats['number_of_board_states']))
 
 solutions = solver.solve_single()
-print(len(solutions[0][0]))
-solution = solutions[0][0]
+print(solutions)
+print(len(solutions[0][-1]))
+solution = solutions[0][-1]
 step = 0
 for board in solution:
     #print("step {}".format(step))
