@@ -10,7 +10,7 @@
 
 最难开局，理论最佳207步。因本程序每部只移动一个单位，所以输出为303个状态，共302步：
 
-![https://github.com/YouhuaLi/klotski-solver/blob/master/readme_images/hardest_openning.png?raw=true]
+![](https://github.com/YouhuaLi/klotski-solver/blob/master/readme_images/hardest_openning.png?raw=true)
 
 ## 运行例子：
 
