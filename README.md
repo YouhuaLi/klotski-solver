@@ -8,7 +8,7 @@
 实物图
 ![](https://github.com/YouhuaLi/klotski-solver/blob/master/readme_images/quzhenjing_2.jpg?raw=true)
 
-最难开局，理论最佳207步。因本程序每部只移动一个单位，所以输出为303个状态，共302步：
+最难开局，理论最佳207步。因本程序每步只移动一个单位，所以输出为303个状态，共302步：
 
 ![](https://github.com/YouhuaLi/klotski-solver/blob/master/readme_images/hardest_openning.png?raw=true)
 
@@ -43,4 +43,4 @@ manim -pql show_solution.py Show_Solution_Hardest
 
 ## 提示：
 
-Hardcod的东西非常多，抱歉！
+Hard code的东西非常多，抱歉！
