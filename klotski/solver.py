@@ -38,8 +38,7 @@ class Solver:
         next_board.previous_board = current_board
         if board.solved(next_board):
           solutions.append(_solution_to_list(next_board))
-          if len(solutions[-1]) == 303:
-              return solutions, _analyze_solutions(solutions, self._enqueued) # retrun when find any solution
+          return solutions, _analyze_solutions(solutions, self._enqueued) # retrun when find any solution
         self._q.append(next_board)
         self._enqueued.add(next_board.hash_key())
     return solutions, _analyze_solutions(solutions, self._enqueued)
